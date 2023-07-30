@@ -15,8 +15,19 @@ function renderTarefa() {
         let liElement = document.createElement("li")
         let textLi = document.createTextNode(name)
 
-        listElement.appendChild(liElement)
+        let linkElement = document.createElement("a")
+        linkElement.setAttribute("href", "#")
+
+        let posicao = tarefas.indexOf(name)
+
+        linkElement.setAttribute("onclick", `excluirTarefa(${posicao})`)
+
+        let textLink = document.createTextNode("   Excluir")
+        linkElement.appendChild(textLink)
+
         liElement.appendChild(textLi)
+        liElement.appendChild(linkElement)
+        listElement.appendChild(liElement)
     })
 }
 
@@ -30,6 +41,11 @@ function cadastrarTarefa() {
 
         renderTarefa()
     }
+}
+
+function excluirTarefa(posicao) {
+    alert("Excluido!!! "+posicao)
+    renderTarefa()
 }
 
 buttonElement.onclick = cadastrarTarefa
