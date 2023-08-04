@@ -2,7 +2,7 @@ let inputElement = document.querySelector(".container-container input")
 let buttonElement = document.querySelector(".container-container button")
 let listElement = document.querySelector(".container-container ul")
 
-let tarefas = []
+let tarefas = JSON.parse(localStorage.getItem("@listKey")) || []
 
 let textelement = document.createTextNode('Cadastrar')
 buttonElement.appendChild(textelement)
@@ -31,6 +31,8 @@ function renderTarefa() {
     })
 }
 
+renderTarefa()
+
 function cadastrarTarefa() {
     if(inputElement.value === "") {
         alert('[ERRO]Preencha o campo corretamente!')
@@ -40,12 +42,18 @@ function cadastrarTarefa() {
         inputElement.value = ''
 
         renderTarefa()
+        salvarDados()
     }
 }
 
 function excluirTarefa(posicao) {
-    alert("Excluido!!! "+posicao)
+    tarefas.splice(posicao, 1)
     renderTarefa()
+    salvarDados()
+}
+
+function salvarDados() {
+    localStorage.setItem("@listKey", JSON.stringify(tarefas))
 }
 
 buttonElement.onclick = cadastrarTarefa
