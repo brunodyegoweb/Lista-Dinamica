@@ -1,3 +1,5 @@
+document.querySelector(".container-img").innerHTML="<img src=asset/img-ilust.png>"
+
 let inputElement = document.querySelector(".container-container input")
 let buttonElement = document.querySelector(".container-container button")
 let listElement = document.querySelector(".container-container ul")
