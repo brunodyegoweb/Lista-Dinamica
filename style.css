@@ -14,15 +14,22 @@ body {
     background-color: #ccc5c5;
 }
 
-ul {
+.media {
     display: flex;
     gap: 1rem;
     justify-content: flex-end;
-    color: #777;
     list-style: none;
+    margin-top: 30px;
 }
 
-li:hover {
+a {
+    color: #777;
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: all 350ms;
+}
+
+a:hover {
     color: #fff;
 }
 
